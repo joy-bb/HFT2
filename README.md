@@ -54,5 +54,41 @@ The code automatedly calculate the trading weights of ETH and BTC, then plotting
 
 With this trading strategy, both assets ETH and BTC will be traded with the optimal weights calculated in every minute from the random of co-integrated factor z and the real-time data from S1 and S2 at minute t. 
 
+### Find your optimal wealth process.
+The dynamic of wealth given by: 
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/0135133f-6205-459e-8026-05dccec58c49)
+
+By solving the HJB and PDE, with the coefficient factors defined above, the optimal wealth process therefore are calculated by:
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/3104083e-a7ba-43c8-94fe-997b89ad28d4)
+As mentioned earlier, both S1 and S2 in this model will be fed with real time data from ETH and BTC on trading day 14 Apr; leading to the dynamic of wealth plotting as:
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/b0a22c8d-057a-4ad5-802b-6fb67b0a8d12)
+
+The positive wealth means buying the asset and negative wealth means selling. Hence the total wealth will then be calculated through absolute value:
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/8f486887-140f-433b-afc6-26244717aeb7)
+And the total wealth show upward trend as the time goes by: 
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/3a4a51a9-f7ab-4bd9-89c5-d61fc51e8568)
+
+Note: It is important to note that these formulas assume that the returns of the two assets are normally distributed and that there are no transaction costs or liquidity constraints. In practice, these assumptions may not hold, and traders must carefully consider these factors when determining optimal trading weights. Additionally, traders must continuously monitor and adjust the trading weights to account for changes in market conditions and model estimation errors.
+
+### Compare the results with the static control pair
+The static control factor is set by using the mean of optimal weights multiply with the value of dynamics S. Since the weight is constant (the mean value), the total wealth over trading day will remain static (not changing much) even the value of S is changing.
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/b045e113-149f-422e-ba3a-7a7667d47978)
+
+In this case, the Pi_1 mean of ETH is 8% and the Pi_2 mean of BTC is 0.6%. Giving the total wealth of static control pair is plotted as below: 
+
+![image](https://github.com/joy-bb/HFT2/assets/71431452/e87c5791-0e57-4fdf-9ba7-e18ab13f1f0d)
+
+The static control pair give a stable total wealth around $360 over the whole trading date, it means the wealth of static control pair can be higher then dynamic ones at the beginning of the trading date, but will remain the same and will be lower than the dynamic ones as time goes by. 
+
+
+
+
+
 
 
